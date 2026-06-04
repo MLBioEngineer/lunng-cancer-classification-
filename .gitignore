@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+
+# Environment
+.env
+.venv/
+venv/
+
+# Datasets and large files
+dataset/
+datasets/
+data/
+Data/
+*.zip
+*.rar
+*.7z
+
+# Model weights and outputs
+*.pt
+*.pth
+*.h5
+models/
+checkpoints/
+outputs/
+runs/
+DL_Model_Outputs_CLEAN_NO_LEAKAGE/
+
+# OS files
+.DS_Store
+Thumbs.db
