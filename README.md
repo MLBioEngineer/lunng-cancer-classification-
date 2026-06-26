@@ -76,18 +76,4 @@ python lung_cancer_classification.py
 
 Note: The script was originally exported from a Colab notebook, so you may need to adjust Google Drive paths and Colab-specific commands before running locally.
 
-## Important Notes
 
-Do not upload these files to GitHub:
-
-- Dataset folders
-- `.zip` dataset files
-- `.pt` or `.pth` trained model weights
-- Output folders
-- Google Drive private files
-
-These are ignored using `.gitignore`.
-
-## Author
-
-Deep learning medical imaging project.
