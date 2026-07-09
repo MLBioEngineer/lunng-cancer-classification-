@@ -1,0 +1,16 @@
+Model,Accuracy,Precision,Recall,F1 Score
+densenet201_lung_clean (Ensemble),0.994118,0.994272,0.994118,0.994135
+densenet201_lung_clean_no_aug (Ensemble),0.988235,0.988571,0.988235,0.988163
+densenet121_lung_clean_no_aug (Ensemble),0.976471,0.976975,0.976471,0.976151
+mobilenetv2_lung_clean (Ensemble),0.976471,0.976471,0.976471,0.976471
+mobilenetv3_large_100_lung_clean_no_aug (Ensemble),0.976471,0.976811,0.976471,0.976403
+fusion_effnetv2_convnext_clean (Ensemble),0.970588,0.971408,0.970588,0.970817
+fusion_mobilenetv3_densenet121_clean (Ensemble),0.970588,0.970567,0.970588,0.970519
+fusion_mobilenetv2_densenet201_clean (Ensemble),0.964706,0.965546,0.964706,0.965004
+mobilenetv2_lung_clean_no_aug (Ensemble),0.964706,0.964815,0.964706,0.964498
+efficientnetv2_s_lung_clean_no_aug (Ensemble),0.964706,0.965935,0.964706,0.964954
+densenet121_lung_clean (Ensemble),0.964706,0.965546,0.964706,0.965004
+densenet121_lung_clean (Cumulative),0.952941,0.954622,0.952941,0.953347
+mobilenetv2_lung_clean (Cumulative),0.950588,,,
+efficientnetv2_s_lung_clean (Cumulative),0.947059,0.948161,0.947059,0.947197
+mobilenetv3_large_100_lung_clean (Cumulative),0.941176,0.9448,0.941176,0.941642

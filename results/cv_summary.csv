@@ -1,0 +1,9 @@
+Model Name,CV Mean Accuracy,CV Std Accuracy
+fusion_mobilenetv2_densenet201_clean,0.983791,0.011754
+fusion_mobilenetv3_densenet121_clean,0.982298,0.016571
+densenet201_lung_clean,0.982266,0.003665
+fused_efficientnet_b3_densenet201_lung_clean_histories.json,0.974869,0.007597
+mobilenetv3_large_100_lung_clean,0.964553,0.022648
+efficientnetv2_s_lung_clean,0.961601,0.00549
+densenet121_lung_clean,0.960153,0.011872
+mobilenetv2_lung_clean,0.958671,0.015139
