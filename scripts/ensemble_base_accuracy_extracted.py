@@ -438,70 +438,6 @@ def compute_mean_std_from_dataframe(dataframe):
     return mean_overall, std_overall
 
 # %% Cell 23
-def as_list(x):
-    return x.tolist() if hasattr(x, "tolist") else x
-
-def build_train_transform(config):
-    return transforms.Compose([
-        transforms.Resize((256, 256)),
-
-        transforms.RandomResizedCrop(
-            size=(config['Resize_h'], config['Resize_w']),
-            scale=(
-                config['aug_random_resized_crop_scale_min'],
-                config['aug_random_resized_crop_scale_max']
-            ),
-            ratio=(0.95, 1.05)
-        ),
-
-        transforms.RandomHorizontalFlip(p=0.5),
-
-        transforms.RandomRotation(
-            degrees=config['aug_random_rotation_degrees']
-        ),
-
-        transforms.RandomAffine(
-            degrees=0,
-            translate=(
-                config['aug_random_affine_translate_max'],
-                config['aug_random_affine_translate_max']
-            ),
-            scale=(
-                config['aug_random_affine_scale_min'],
-                config['aug_random_affine_scale_max']
-            ),
-            shear=config['aug_random_affine_shear']
-        ),
-
-        transforms.ColorJitter(
-            brightness=config['aug_color_jitter_brightness'],
-            contrast=config['aug_color_jitter_contrast'],
-            saturation=0.0,
-            hue=0.0
-        ),
-
-        transforms.RandomAutocontrast(p=0.15),
-        transforms.RandomAdjustSharpness(sharpness_factor=1.25, p=0.15),
-
-        transforms.RandomApply([
-            transforms.GaussianBlur(kernel_size=3, sigma=(0.1, 1.0))
-        ], p=config['aug_gaussian_blur_p']),
-
-        transforms.ToTensor(),
-
-        transforms.Normalize(
-            mean=as_list(config['mean_overall']),
-            std=as_list(config['std_overall'])
-        ),
-
-        transforms.RandomErasing(
-            p=config['aug_random_erasing_p'],
-            scale=(0.01, 0.06),
-            ratio=(0.3, 3.3),
-            value='random'
-        )
-    ])
-
 def build_val_test_transform(config):
     return transforms.Compose([
         transforms.Resize((config['Resize_h'], config['Resize_w'])),
@@ -3652,6 +3588,15 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, auc
 from sklearn.preprocessing import label_binarize
 import numpy as np
+
+# Define models_data dictionary mapping model display names to (true_labels_var_name, predicted_probs_var_name)
+models_data = {
+    'MobileNetV2': ('y_true_mobilenetv2', 'avg_probs_mobilenetv2'),
+    'DenseNet121': ('y_true_densenet121', 'avg_probs_densenet121'),
+    'DenseNet201': ('y_true_final_densenet201', 'avg_probs_densenet201'),
+    'MobileNetV3 Large': ('y_true_final_mobilenetv3_large', 'avg_probs_mobilenetv3_large'),
+    'EfficientNetV2-S': ('y_true_final_efficientnetv2_s', 'avg_probs_efficientnetv2_s')
+}
 
 plt.figure(figsize=(12, 9))
 
